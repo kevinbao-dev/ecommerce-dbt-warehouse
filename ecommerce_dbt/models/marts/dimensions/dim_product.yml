@@ -1,0 +1,17 @@
+version: 2
+
+models:
+- name: dim_product
+  description: "Product dimension table containing one row for each unique stock_code"
+  columns:
+    - name: product_id
+      description: "Surrogate key for the product entry"
+      tests:
+        - unique
+        - not_null
+    - name: stock_code
+      description: "Natural key from the ecommerce dataset"
+      tests:
+        - not_null
+    - name: description
+      description: "Canonical product description from the ecommerce dataset"

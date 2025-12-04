@@ -1,0 +1,1 @@
+select count(*) from analytics.fct_order_lines

@@ -1,0 +1,17 @@
+version: 2
+
+models:
+- name: dim_customer
+  description: "Product dimension tables containing one row per customer"
+  columns:
+    - name: customer_id
+      description: "Surrogate id for customer entry"
+      tests:
+        - not_null
+        - unique
+    - name: customer_code
+      description: "Natural key from ecommerce dataset"
+      tests:
+        - not_null
+    - name: country
+      description: "Canonical customer country from ecommerce dataset"

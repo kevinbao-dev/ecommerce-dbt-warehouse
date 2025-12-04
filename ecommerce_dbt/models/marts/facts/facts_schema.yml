@@ -1,0 +1,54 @@
+version: 2
+
+models:
+- name: fct_order_lines
+  description: "Fact table at the grain of one product per order line (invoice_no and stock_code)"
+  tests:
+    - dbt_utils.unique_combination_of_columns:
+        arguments:
+          combination_of_columns:
+            - invoice_no
+            - stock_code
+  columns:
+    - name: invoice_no
+      description: "Natural key identifying the order from source dataset"
+      tests:
+        - not_null
+
+    - name: stock_code
+      description: "Natural key reprenting the product from source dataset"
+      tests:
+        - not_null
+    
+    - name: revenue
+      description: "Calculated value from quantity * unit_price"
+    
+    - name: customer_id
+      description: "Surrogate key referencing dim_customer"
+      tests:
+        - not_null
+        - relationships:
+            arguments:
+              to: ref('dim_customer')
+              field: customer_id
+
+    - name: product_id
+      description: "Surrogate key referencing dim_product"
+      tests:
+        - not_null
+        - relationships:
+            arguments:
+              to: ref('dim_product')
+              field: product_id
+
+    - name: date_id
+      description: "Surrogate key referencing dim_date"
+      tests:
+        - not_null
+        - relationships:
+            arguments:
+              to: ref('dim_date')
+              field: date_id
+
+    
+    

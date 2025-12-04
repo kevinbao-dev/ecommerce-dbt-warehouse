@@ -1,0 +1,24 @@
+version: 2
+
+models:
+- name: dim_date
+  description: "Date dimension table containing one row for each unique timestamp"
+  columns:
+    - name: date_id
+      description: "Surrogate key for the date entry"
+      tests:
+        - unique
+        - not_null
+    - name: year
+      description: "Canonical year for date entry"
+      tests:
+        - not_null
+    - name: month
+      description: "Canonical month for date entry"
+      tests:
+        - not_null
+    - name: day
+      description: "Canonical day for date entry"
+      tests:
+        - not_null
+      
