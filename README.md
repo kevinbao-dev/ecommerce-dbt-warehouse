@@ -1,9 +1,9 @@
-# 🛍️  Ecommerce Warehouse — dbt Project Overview:
+# Ecommerce Warehouse — dbt Project Overview:
 
 This project uses **dbt** to model and transform an e-commerce transaction dataset into an analytical star schema.
 It involves staging, dimension modeling, and a fact table with revenue and order analysis (referencing product, customer, and date dimensions).
 
-## 🎯 Objective
+## Summary
 
 Converting a raw, publicly sourced e-commerce dataset into well-documented and tested analytical models using dbt to 
 demonstrate data engineering best practices.
@@ -13,13 +13,12 @@ demonstrate data engineering best practices.
 - Dbt documentation and lineage
 - Concise grain definition
   
-## 📂 Source Data
+## Source Data
 
 - This dataset is sourced from the UCI Online Retail dataset and contains real transactions between 2010 and 2011 from a UK-based online retailer.
 - **Source**: <https://www.kaggle.com/datasets/carrie1/ecommerce-data/data>
   
-## ⚙️ How To Run
-### Prerequisites
+## How To Run
 - Python 3.10+
 - dbt-core (**Recommendation**: install via virtual environment)
 - PostgreSQL (local or remote)
